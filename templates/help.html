@@ -9,46 +9,42 @@
     Would you like to offer support?
 </div>
 
-    <ul class="collapsible">
-        {% for task in help %}
-        <li>
-            <div class="collapsible-header white-text light-blue darken-4 text-shadow">
-                <i class="fas fa-caret-down"></i>
-                <strong>{{ task.task_name }}</strong> {{ task.category_name }}
-                {% if task.is_urgent == "on" %}
-                    <i class="fas fa-exclamation-circle light-blue-text text-lighten-2 tooltipped"
-                        data-position="right" data-tooltip="URGENT!"></i>
-                {% endif %}
-            </div>
-            <div class="collapsible-body">
-                <strong>{{ task.category_name }}</strong>
-                <p>{{ task.task_description }}</p>
-            </div>
-        </li>
-        {% endfor %}
-    </ul>
+    {% for items in help %}
+        <ul class="collapsible">
+            {% if help.category_name %}
+                <li>
+                    <div class="collapsible-header white-text light-blue darken-4 text-shadow">
+                        <i class="fas fa-caret-down"></i>
+                        <strong>{{ help.category_name }}</strong>
+                    </div>
+                    <div class="collapsible-body">
+                        <p>{{ help.task_description }}</p>
+                    </div>
+                </li>
+            {% endif %}
+        </ul>
+    {% endfor %}
 
     <div class="text">
     Do you require support?
     </div>
 
+    {% for items in help %}
         <ul class="collapsible">
-        {% for task in help %}
-        <li>
-            <div class="collapsible-header white-text light-blue darken-4 text-shadow">
-                <i class="fas fa-caret-down"></i>
-                <strong>{{ task.task_name }}</strong> {{ task.recipient_name }}
-                {% if task.is_urgent == "on" %}
-                    <i class="fas fa-exclamation-circle light-blue-text text-lighten-2 tooltipped"
-                        data-position="right" data-tooltip="URGENT!"></i>
-                {% endif %}
-            </div>
-            <div class="collapsible-body">
-                <strong>{{ task.recipient_name }}</strong>
-                <p>{{ task.task_description }}</p>
-            </div>
-        </li>
-        {% endfor %}
-    </ul>
+            {% if help.recipient_name %}
+                <li>
+                    <div class="collapsible-header white-text light-blue darken-4 text-shadow">
+                        <i class="fas fa-caret-down"></i>
+                        <strong>{{ help.recipient_name }}</strong>
+                    </div>
+                    <div class="collapsible-body">
+                        <strong>{{ help.recipient_name }}</strong>
+                        <p>{{ help.task_description }}</p>
+                    </div>
+                </li>
+            </ul>
+        {% endif %}
+    {% endfor %}
+        
 
 {% endblock %}
