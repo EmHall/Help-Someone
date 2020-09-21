@@ -5,12 +5,16 @@
     The Government has recently committed to "Levelling Up" the economy, so that London and the rest of the country have access to equally good opportunities and, ultimately, income. Income equality, however, cannot be achieved by this Government alone, so this website aims to help young people without means or networks to access opportunities that they otherwise wouldn't be able to.
 </div>
 
+<div class="text">
+    Would you like to offer support?
+</div>
+
     <ul class="collapsible">
         {% for task in help %}
         <li>
             <div class="collapsible-header white-text light-blue darken-4 text-shadow">
                 <i class="fas fa-caret-down"></i>
-                <strong>{{ task.task_name }}</strong> : {{ task.due_date }}
+                <strong>{{ task.task_name }}</strong> {{ task.category_name }}
                 {% if task.is_urgent == "on" %}
                     <i class="fas fa-exclamation-circle light-blue-text text-lighten-2 tooltipped"
                         data-position="right" data-tooltip="URGENT!"></i>
@@ -18,6 +22,29 @@
             </div>
             <div class="collapsible-body">
                 <strong>{{ task.category_name }}</strong>
+                <p>{{ task.task_description }}</p>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <div class="text">
+    Do you require support?
+    </div>
+
+        <ul class="collapsible">
+        {% for task in help %}
+        <li>
+            <div class="collapsible-header white-text light-blue darken-4 text-shadow">
+                <i class="fas fa-caret-down"></i>
+                <strong>{{ task.task_name }}</strong> {{ task.recipient_name }}
+                {% if task.is_urgent == "on" %}
+                    <i class="fas fa-exclamation-circle light-blue-text text-lighten-2 tooltipped"
+                        data-position="right" data-tooltip="URGENT!"></i>
+                {% endif %}
+            </div>
+            <div class="collapsible-body">
+                <strong>{{ task.recipient_name }}</strong>
                 <p>{{ task.task_description }}</p>
             </div>
         </li>
