@@ -19,9 +19,9 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
-@app.route("/get_help   ")
+@app.route("/get_help")
 def get_help():
-    help = mongo.db.help.find()
+    help = list(mongo.db.categories.find())
     return render_template("help.html", help=help)
 
 
