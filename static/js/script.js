@@ -37,9 +37,6 @@ anime.timeline({loop: true})
     scaleX: [0, 1],
     easing: "easeInExpo",
 
-
-
-
   }).add({
     targets: '.ml5 .letters-left',
     opacity: [0,1],
@@ -57,11 +54,8 @@ anime.timeline({loop: true})
   }).add({
     targets: '.ml5',
     opacity: 0,
-
-    delay: 1000
+    delay: 100000,
   });
-
-
 
 /*
     vanilla JavaScript for MaterializeCSS initialization

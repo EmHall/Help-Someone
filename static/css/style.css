@@ -4,12 +4,8 @@
     color: #402d2d;
 }
 
-.a {
-    font-family: 'Exo', sans-serif;
-    font-size: 20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    color:  #402d2d;
+nav ul a {
+    color: slategrey;
 }
 
 .text {

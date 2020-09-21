@@ -9,16 +9,66 @@
     Would you like to offer support?
 </div>
 
+
     {% for items in help %}
         <ul class="collapsible">
-            {% if help.category_name %}
+            {% if items.category_name %}
                 <li>
                     <div class="collapsible-header white-text light-blue darken-4 text-shadow">
                         <i class="fas fa-caret-down"></i>
-                        <strong>{{ help.category_name }}</strong>
+                        <strong>{{ items.category_name }}</strong>
                     </div>
                     <div class="collapsible-body">
-                        <p>{{ help.task_description }}</p>
+                        <p>{{ items.task_description }}</p>
+                        <form class="col s12" method="POST" action="">
+			<div class="row">
+				<div class="input-field col s12">
+                    <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
+					<select id="category_name" name="category_name" class="validate" required>
+                        <option value="" disabled selected>Choose Category</option>
+                        {% for category in categories %}
+                            <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                        {% endfor %}
+                    </select>
+					<label for="category_name">Task Category</label>
+				</div>
+			</div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
+                    <input id="task_name" name="task_name" minlength="5" maxlength="50"
+                        type="text" class="validate" required>
+                    <label for="task_name">Task Name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
+                    <textarea id="task_description" name="task_description" minlength="5"
+                        maxlength="200" class="materialize-textarea validate" required></textarea>
+                    <label for="task_description">Task Description</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-calendar-alt prefix light-blue-text text-darken-4"></i>
+                    <input id="due_date" name="due_date" type="text" class="datepicker validate" required>
+                    <label for="due_date">Due Date</label>
+                </div>
+            </div>
+			<div class="row">
+				<div class="input-field col s12">
+					<div class="switch">
+                        <i class="fas fa-exclamation-circle prefix light-blue-text text-darken-4"></i>
+						<label for="is_urgent">
+                            <input type="checkbox" id="is_urgent" name="is_urgent">
+                            <span class="lever"></span>
+                            Is Urgent
+                        </label>
+					</div>
+				</div>
+			</div>
+        </form>
                     </div>
                 </li>
             {% endif %}
@@ -29,17 +79,19 @@
     Do you require support?
     </div>
 
-    {% for items in help %}
+
+
+    {% for items in people %}
         <ul class="collapsible">
-            {% if help.recipient_name %}
+            {% if items.recipient_name %}
                 <li>
                     <div class="collapsible-header white-text light-blue darken-4 text-shadow">
                         <i class="fas fa-caret-down"></i>
-                        <strong>{{ help.recipient_name }}</strong>
+                        <strong>{{ items.recipient_name }}</strong>
                     </div>
                     <div class="collapsible-body">
-                        <strong>{{ help.recipient_name }}</strong>
-                        <p>{{ help.task_description }}</p>
+                        <strong>{{ items.recipient_name }}</strong>
+                        <p>{{ items.task_description }}</p>
                     </div>
                 </li>
             </ul>
