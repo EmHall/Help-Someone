@@ -6,11 +6,11 @@
 
     <div class="row">
         
-        <button type="submit" class="col s4 btn-large light-blue darken-4 text-shadow">Log In</button>
-        <button type="submit" class="col s4 btn-large light-blue darken-4 text-shadow">Register</button>
-        <button type="submit" class="col s4 btn-large light-blue darken-4 text-shadow">Log Out</button>
 
-    <button class="accordion">Section 1</button>
+        <button type="submit" class="col s4 btn-large light-blue darken-4 text-shadow">Register</button>
+        <button type="submit" class="col s4 btn-large light-blue darken-4 text-shadow">Log In</button>
+
+    <button class="accordion col s4 btn-large light-blue darken-4 text-shadow">Log Out</button>
     <div class="panel">
         <div class="col s4">
             <form class="login" method="POST" action="{{ url_for('login') }}">
@@ -40,9 +40,9 @@
                         </button>
                     </div>
                 </div>
-            </form>
-        </div>
-</div>
+            </div>
+        </form>
+    </div>
 
     <div class="col s4">
         <form class="login" method="POST" action="{{ url_for('login') }}">
@@ -75,14 +75,7 @@
         </form>
     </div>
 
-    <div class="col s4">
-        <form class="login" method="POST" action="{{ url_for('login') }}">
-            <div class="card-panel">
-                Log Out
-            </div>
-        </form>
-    </div>
-
+    
 
 </div>
 </div>

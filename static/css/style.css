@@ -116,7 +116,8 @@ input:-ms-input-placeholder {
 color:  #402d2d;
 }
 
-/*Log In Accordian*/
+/*Log In Accordion*/
+
 .register {
     background-color:  white;
     width: 52%;
@@ -139,8 +140,3 @@ color:  #402d2d;
     background-color: #e3f2fd;
     color: white;
 }
-
-<button class="accordion">Section 1</button>
-<div class="panel">
-  <p>Lorem ipsum...</p>
-</div>
