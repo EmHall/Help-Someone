@@ -1,16 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
+
 <div class="text">
     The Government has recently committed to "Levelling Up" the economy, so that London and the rest of the country have access to equally good opportunities and, ultimately, income. Income equality, however, cannot be achieved by this Government alone, so this website aims to help young people without means or networks to access opportunities that they otherwise wouldn't be able to.
 </div>
 
     <div class="row">
-        
-
-        <button type="submit" class="col s4 btn-large light-blue darken-4 text-shadow">Register</button>
-        <button type="submit" class="col s4 btn-large light-blue darken-4 text-shadow">Log In</button>
-
-    <button class="accordion col s4 btn-large light-blue darken-4 text-shadow">Log Out</button>
+    
+    <button class="accordion col s4 btn-large light-blue darken-4 text-shadow">Log In</button>
     <div class="panel">
         <div class="col s4">
             <form class="login" method="POST" action="{{ url_for('login') }}">
@@ -44,33 +41,36 @@
         </form>
     </div>
 
-    <div class="col s4">
-        <form class="login" method="POST" action="{{ url_for('login') }}">
-            <div class="card-panel">
+    <button class="accordion col s4 btn-large light-blue darken-4 text-shadow">Register</button>
+    <div class="panel">
+        <div class="col s4">
+            <form class="login" method="POST" action="{{ url_for('login') }}">
+                <div class="card-panel">
                     <!-- username -->
                     <div class="row">
-                        <div class="input-field col s12">
-                            <i class="fas fa-user-plus prefix light-blue-text text-darken-4"></i>
-                            <input id="username" name="username" type="text" minlength="5"
+					    <div class="input-field col s12">
+						    <i class="fas fa-user-cog prefix light-blue-text text-darken-4"></i>
+						    <input id="username" name="username" type="text" minlength="5"
                                 maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
-                            <label for="username">Username</label>
-                        </div>
+						    <label for="username">Username</label>
+					    </div>
                     </div>
                     <!-- passowrd -->
                     <div class="row">
                         <div class="input-field col s12">
-                            <i class="fas fa-user-lock prefix light-blue-text text-darken-4"></i>
+						    <i class="fas fa-user-lock prefix light-blue-text text-darken-4"></i>
                             <input id="password" name="password" type="password" minlength="5"
                                 maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
                             <label for="password">Password</label>
                         </div>
                     </div>
-                    <!-- register -->
+                    <!-- login -->
                     <div class="row">
                         <button type="submit" class="col s12 btn-large light-blue darken-4 text-shadow">
-                            Register <i class="fas fa-sign-in-alt"></i>
+                            Register<i class="fas fa-sign-in-alt"></i>
                         </button>
                     </div>
+                </div>
             </div>
         </form>
     </div>
