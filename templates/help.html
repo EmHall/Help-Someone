@@ -4,22 +4,15 @@
     The Government has recently committed to "Levelling Up" the economy, so that London and the rest of the country have access to equally good opportunities and, ultimately, income. Income equality, however, cannot be achieved by this Government alone, so this website aims to help young people without means or networks to access opportunities that they otherwise wouldn't be able to.
 </div>
 
-{% if session["logged_in"] == True %}
-
-{% else %}
-
-    <script>
-        $(document).ready(function(){
-        $("button").click(function(){
-        $("card-panel").toggle(); }); });
-    </script>
-    
     <div class="row">
         
-        <button type="submit" class="col s6 btn-large light-blue darken-4 text-shadow">Log In</button>
-        <button type="submit" class="col s6 btn-large light-blue darken-4 text-shadow">Register</button>
+        <button type="submit" class="col s4 btn-large light-blue darken-4 text-shadow">Log In</button>
+        <button type="submit" class="col s4 btn-large light-blue darken-4 text-shadow">Register</button>
+        <button type="submit" class="col s4 btn-large light-blue darken-4 text-shadow">Log Out</button>
 
-        <div class="col s6">
+    <button class="accordion">Section 1</button>
+    <div class="panel">
+        <div class="col s4">
             <form class="login" method="POST" action="{{ url_for('login') }}">
                 <div class="card-panel">
                     <!-- username -->
@@ -49,17 +42,19 @@
                 </div>
             </form>
         </div>
+</div>
 
-    <div class="col s6">
-        <div class="card-panel">
-            <form class="login" method="POST" action="{{ url_for('login') }}">
-                <div class="card-panel">
+    <div class="col s4">
+        <form class="login" method="POST" action="{{ url_for('login') }}">
+            <div class="card-panel">
                     <!-- username -->
-                    <div class="input-field col s12">
-                        <i class="fas fa-user-plus prefix light-blue-text text-darken-4"></i>
-                        <input id="username" name="username" type="text" minlength="5"
-                            maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
-                        <label for="username">Username</label>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="fas fa-user-plus prefix light-blue-text text-darken-4"></i>
+                            <input id="username" name="username" type="text" minlength="5"
+                                maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
+                            <label for="username">Username</label>
+                        </div>
                     </div>
                     <!-- passowrd -->
                     <div class="row">
@@ -76,17 +71,27 @@
                             Register <i class="fas fa-sign-in-alt"></i>
                         </button>
                     </div>
-                </div>
-            </form>
+            </div>
+        </form>
+    </div>
 
-{% endif %}
+    <div class="col s4">
+        <form class="login" method="POST" action="{{ url_for('login') }}">
+            <div class="card-panel">
+                Log Out
+            </div>
+        </form>
+    </div>
+
+
+</div>
+</div>
 
 <div class="text">
     Would you like to offer support?
-</div>
 
 {% for items in help %}
-    <ul class="collapsible">
+    <ul class="collapsible col-12">
         {% if items.category_name %}
             <li>
                 <div class="collapsible-header white-text light-blue darken-4 text-shadow">
@@ -133,12 +138,13 @@
                 </div>
             </li>
         </ul>
+  
     {% endif %}
 
     {% endfor %}
+
     <div class="text">
     Do you require support?
-    </div>
 
     {% for items in people %}
         <ul class="collapsible">
