@@ -7,6 +7,8 @@
 
     {% if session["logged_in"] == True %}
 
+    <button type="submit" class="col s6 btn-large light-blue darken-4 text-shadow">Log Out</button>
+
     {% else %}
 
     <script>
@@ -20,7 +22,8 @@
       <button type="submit" class="col s6 btn-large light-blue darken-4 text-shadow">Log In</button>
       <button type="submit" class="col s6 btn-large light-blue darken-4 text-shadow">Register</button>
 
-      <div class="col s6"><form class="login" method="POST" action="{{ url_for('login') }}">
+      <div class="col s6">
+        <form class="login" method="POST" action="{{ url_for('login') }}">
             <div class="card-panel">
                 <!-- username -->
                 <div class="row">
@@ -42,56 +45,53 @@
                 </div>
                 <!-- login -->
                 <div class="row">
-                            <button type="submit" class="col s12 btn-large light-blue darken-4 text-shadow">
-                                Log In<i class="fas fa-sign-in-alt"></i>
-                            </button>
-                        </div>
+                    <button type="submit" class="col s12 btn-large light-blue darken-4 text-shadow">
+                        Log In<i class="fas fa-sign-in-alt"></i>
+                    </button>
+                </div>
             </div>
         </form>
     </div>
 
 <card>
 
-    <div class="col s6">
-        <div class="card-panel">
+      <div class="col s6">
+        <form class="login" method="POST" action="{{ url_for('login') }}">
+            <div class="card-panel">
                 <!-- username -->
-                    <form class="row" method="POST" action="{{ url_for('register') }}">
-                        <div class="input-field col s12">
-                            <i class="fas fa-user-plus prefix light-blue-text text-darken-4"></i>
-                            <input id="username" name="username" type="text" minlength="5"
-                                maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
-                            <label for="username">Username</label>
-                        </div>
-
-                        <!-- passowrd -->
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <i class="fas fa-user-lock prefix light-blue-text text-darken-4"></i>
-                                <input id="password" name="password" type="password" minlength="5"
-                                    maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
-                                <label for="password">Password</label>
-                            </div>
-                        </div>
-
-                        <!-- register -->
-                        <div class="row">
-                            <button type="submit" class="col s12 btn-large light-blue darken-4 text-shadow">
-                                Register <i class="fas fa-sign-in-alt"></i>
-                            </button>
-                        </div>
-                    </form>
+                <div class="row">
+					<div class="input-field col s12">
+						<i class="fas fa-user-cog prefix light-blue-text text-darken-4"></i>
+						<input id="username" name="username" type="text" minlength="5"
+                            maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
+						<label for="username">Username</label>
+					</div>
                 </div>
-        </div>
+                <!-- passowrd -->
+                <div class="row">
+                    <div class="input-field col s12">
+						<i class="fas fa-user-lock prefix light-blue-text text-darken-4"></i>
+                        <input id="password" name="password" type="password" minlength="5"
+                            maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+                <!-- login -->
+                <div class="row">
+                    <button type="submit" class="col s12 btn-large light-blue darken-4 text-shadow">
+                        Log In<i class="fas fa-sign-in-alt"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
     </div>
 </card>
-
 
 {% endif %}
 
 <div class="text">
     Would you like to offer support?
 </div>
-
 
     {% for items in help %}
         <ul class="collapsible">
@@ -132,7 +132,7 @@
                     <label for="task_description">E-mail Address</label>
                 </div>
             </div>
-                        <div class="row">
+            <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
                     <textarea id="task_description" name="task_description" minlength="5"
@@ -141,8 +141,8 @@
                 </div>
             </div>
         </form>
-                    </div>
-                </li>
+    </div>
+        </li>
             {% endif %}
         </ul>
     {% endfor %}
@@ -150,8 +150,6 @@
     <div class="text">
     Do you require support?
     </div>
-
-
 
     {% for items in people %}
         <ul class="collapsible">
