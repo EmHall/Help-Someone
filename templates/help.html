@@ -1,91 +1,83 @@
 {% extends "base.html" %}
 {% block content %}
-
 <div class="text">
     The Government has recently committed to "Levelling Up" the economy, so that London and the rest of the country have access to equally good opportunities and, ultimately, income. Income equality, however, cannot be achieved by this Government alone, so this website aims to help young people without means or networks to access opportunities that they otherwise wouldn't be able to.
 </div>
 
-    {% if session["logged_in"] == True %}
+{% if session["logged_in"] == True %}
 
-    <button type="submit" class="col s6 btn-large light-blue darken-4 text-shadow">Log Out</button>
-
-    {% else %}
+{% else %}
 
     <script>
         $(document).ready(function(){
         $("button").click(function(){
-        $("card").toggle(); }); });
+        $("card-panel").toggle(); }); });
     </script>
     
     <div class="row">
+        
+        <button type="submit" class="col s6 btn-large light-blue darken-4 text-shadow">Log In</button>
+        <button type="submit" class="col s6 btn-large light-blue darken-4 text-shadow">Register</button>
 
-      <button type="submit" class="col s6 btn-large light-blue darken-4 text-shadow">Log In</button>
-      <button type="submit" class="col s6 btn-large light-blue darken-4 text-shadow">Register</button>
-
-      <div class="col s6">
-        <form class="login" method="POST" action="{{ url_for('login') }}">
-            <div class="card-panel">
-                <!-- username -->
-                <div class="row">
-					<div class="input-field col s12">
-						<i class="fas fa-user-cog prefix light-blue-text text-darken-4"></i>
-						<input id="username" name="username" type="text" minlength="5"
-                            maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
-						<label for="username">Username</label>
-					</div>
-                </div>
-                <!-- passowrd -->
-                <div class="row">
-                    <div class="input-field col s12">
-						<i class="fas fa-user-lock prefix light-blue-text text-darken-4"></i>
-                        <input id="password" name="password" type="password" minlength="5"
-                            maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
-                        <label for="password">Password</label>
+        <div class="col s6">
+            <form class="login" method="POST" action="{{ url_for('login') }}">
+                <div class="card-panel">
+                    <!-- username -->
+                    <div class="row">
+					    <div class="input-field col s12">
+						    <i class="fas fa-user-cog prefix light-blue-text text-darken-4"></i>
+						    <input id="username" name="username" type="text" minlength="5"
+                                maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
+						    <label for="username">Username</label>
+					    </div>
+                    </div>
+                    <!-- passowrd -->
+                    <div class="row">
+                        <div class="input-field col s12">
+						    <i class="fas fa-user-lock prefix light-blue-text text-darken-4"></i>
+                            <input id="password" name="password" type="password" minlength="5"
+                                maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+                    <!-- login -->
+                    <div class="row">
+                        <button type="submit" class="col s12 btn-large light-blue darken-4 text-shadow">
+                            Log In<i class="fas fa-sign-in-alt"></i>
+                        </button>
                     </div>
                 </div>
-                <!-- login -->
-                <div class="row">
-                    <button type="submit" class="col s12 btn-large light-blue darken-4 text-shadow">
-                        Log In<i class="fas fa-sign-in-alt"></i>
-                    </button>
-                </div>
-            </div>
-        </form>
-    </div>
+            </form>
+        </div>
 
-<card>
-
-      <div class="col s6">
-        <form class="login" method="POST" action="{{ url_for('login') }}">
-            <div class="card-panel">
-                <!-- username -->
-                <div class="row">
-					<div class="input-field col s12">
-						<i class="fas fa-user-cog prefix light-blue-text text-darken-4"></i>
-						<input id="username" name="username" type="text" minlength="5"
-                            maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
-						<label for="username">Username</label>
-					</div>
-                </div>
-                <!-- passowrd -->
-                <div class="row">
+    <div class="col s6">
+        <div class="card-panel">
+            <form class="login" method="POST" action="{{ url_for('login') }}">
+                <div class="card-panel">
+                    <!-- username -->
                     <div class="input-field col s12">
-						<i class="fas fa-user-lock prefix light-blue-text text-darken-4"></i>
-                        <input id="password" name="password" type="password" minlength="5"
+                        <i class="fas fa-user-plus prefix light-blue-text text-darken-4"></i>
+                        <input id="username" name="username" type="text" minlength="5"
                             maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
-                        <label for="password">Password</label>
+                        <label for="username">Username</label>
+                    </div>
+                    <!-- passowrd -->
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="fas fa-user-lock prefix light-blue-text text-darken-4"></i>
+                            <input id="password" name="password" type="password" minlength="5"
+                                maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+                    <!-- register -->
+                    <div class="row">
+                        <button type="submit" class="col s12 btn-large light-blue darken-4 text-shadow">
+                            Register <i class="fas fa-sign-in-alt"></i>
+                        </button>
                     </div>
                 </div>
-                <!-- login -->
-                <div class="row">
-                    <button type="submit" class="col s12 btn-large light-blue darken-4 text-shadow">
-                        Log In<i class="fas fa-sign-in-alt"></i>
-                    </button>
-                </div>
-            </div>
-        </form>
-    </div>
-</card>
+            </form>
 
 {% endif %}
 
@@ -93,60 +85,57 @@
     Would you like to offer support?
 </div>
 
-    {% for items in help %}
-        <ul class="collapsible">
-            {% if items.category_name %}
-                <li>
-                    <div class="collapsible-header white-text light-blue darken-4 text-shadow">
-                        <i class="fas fa-caret-down"></i>
-                        <strong>{{ items.category_name }}</strong>
+{% for items in help %}
+    <ul class="collapsible">
+        {% if items.category_name %}
+            <li>
+                <div class="collapsible-header white-text light-blue darken-4 text-shadow">
+                    <i class="fas fa-caret-down"></i>
+                    <strong>{{ items.category_name }}</strong>
+                </div>
+                <div class="collapsible-body">
+                    <p>{{ items.task_description }}</p>
+                    <form class="col s12" method="POST" action="">
+			    <div class="row">
+				    <div class="input-field col s12">
+                        <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
+					        <select id="category_name" name="category_name" class="validate" required>
+                                <option value="" disabled selected>Category</option>
+                                {% for category in categories %}
+                                <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                                {% endfor %}
+                            </select>
+					    <label for="category_name">Category</label>
+				    </div>
+			    </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
+                        <input id="task_name" name="task_name" minlength="5" maxlength="50"
+                            type="text" class="validate" required>
+                        <label for="task_name">How can you help level up?</label>
                     </div>
-                    <div class="collapsible-body">
-                        <p>{{ items.task_description }}</p>
-                        <form class="col s12" method="POST" action="">
-			<div class="row">
-				<div class="input-field col s12">
-                    <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
-					<select id="category_name" name="category_name" class="validate" required>
-                        <option value="" disabled selected>Category</option>
-                        {% for category in categories %}
-                            <option value="{{ category.category_name }}">{{ category.category_name }}</option>
-                        {% endfor %}
-                    </select>
-					<label for="category_name">Category</label>
-				</div>
-			</div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
-                    <input id="task_name" name="task_name" minlength="5" maxlength="50"
-                        type="text" class="validate" required>
-                    <label for="task_name">How can you help level up?</label>
                 </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
-                    <textarea id="task_description" name="task_description" minlength="5"
-                        maxlength="200" class="materialize-textarea validate" required></textarea>
-                    <label for="task_description">E-mail Address</label>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
+                        <textarea id="task_description" name="task_description" minlength="5"
+                            maxlength="200" class="materialize-textarea validate" required></textarea>
+                        <label for="task_description">E-mail Address</label>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
+                    <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
                     <textarea id="task_description" name="task_description" minlength="5"
                         maxlength="200" class="materialize-textarea validate" required></textarea>
                     <label for="task_description">Website and upload CV</label>
                 </div>
-            </div>
-        </form>
-    </div>
-        </li>
-            {% endif %}
+            </li>
         </ul>
-    {% endfor %}
+    {% endif %}
 
+    {% endfor %}
     <div class="text">
     Do you require support?
     </div>
@@ -168,5 +157,4 @@
         {% endif %}
     {% endfor %}
         
-
 {% endblock %}
