@@ -9,11 +9,11 @@ nav ul a {
 }
 
 .letters-left {
-    color: black;
+    color: slategrey;
 }
 
 .letters-right {
-    color: black;
+    color: slategrey;
 }
 
 .text {
@@ -46,7 +46,7 @@ nav ul a {
   bottom: 0;
   height: 3px;
   width: 100%;
-  background-color: #402d2d;
+  background-color: slategrey;
   transform-origin: 0.5 0;
 }
 
@@ -76,7 +76,7 @@ label.header {
     font-size: 16px;
     font-weight: 500;
     width: 215px;
-    color:  #402d2d;
+    color:  slategrey;
     margin-right:10px;
     text-align:justify;
     letter-spacing: 1px;
