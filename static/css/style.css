@@ -1,5 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700|Exo:100,200,300,400,500,600,700');
-  
+
+
+.background {
+    background-image: url("/static/img/bg.jpg");
+    background-size: cover;
+}
+
+.card-panel {
+    background-image: url("/static/img/bg.jpg");
+    background-size: cover;
+}
+
 .nav-text {
     color: #402d2d;
 }
@@ -21,7 +32,7 @@ nav ul a {
     font-size: 20px;
     padding-top: 20px;
     padding-bottom: 20px;
-    color:  #402d2d;
+    color:  black;
 }
 
 .ml5 {
@@ -29,7 +40,7 @@ nav ul a {
   position: center;
   font-weight: 300;
   font-size: 4.5em;
-  color: #402d2d;
+  color: black;
 }
 
 .ml5 .text-wrapper {
@@ -89,7 +100,7 @@ input#image,input#store_name, input#store_type,input#owner_type, input#website,i
     width:40%;
     height:55px;
     border: 1px solid #dadada;
-    color:  #402d2d;
+    color:  black;
     text-align:justify;
     outline: none;
     letter-spacing: 1px;
@@ -104,16 +115,16 @@ input#image:focus,input#store_name:focus, input#store_type:focus,input#owner_typ
     box-shadow: 5px, 10px;
 }
 input::-webkit-input-placeholder {
-color:  #402d2d;
+color:  black;
 } 
 input:-moz-placeholder { /* Firefox 18- */
-color:  #402d2d; 
+color:  black; 
 } 
 input::-moz-placeholder {  /* Firefox 19+ */
-color:  #402d2d;
+color: black;
 } 
 input:-ms-input-placeholder {  
-color:  #402d2d;
+color:  black;
 }
 
 /*Log In Accordion*/
