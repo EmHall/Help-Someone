@@ -23,9 +23,9 @@ mongo = PyMongo(app)
 def get_help():
     help = list(mongo.db.categories.find())
     people = list(mongo.db.recipients.find())
-    return render_template("help.html")
+    return render_template("help.html", help=help, people=people)
     
-    
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
