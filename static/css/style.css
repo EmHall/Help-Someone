@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700|Exo:100,200,300,400,500,600,700');
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700|Segoe-UI:100,200,300,400,500,600,700');
 
 .btn-large {
     color: slategrey;
@@ -16,7 +16,7 @@
 }
 
 .container {
-    font-family: "Exo", sans-serif;
+    font-family: "Segoe UI", sans-serif;
     color: slategrey;
 }
 
@@ -48,7 +48,7 @@ nav ul a {
 }
 
 .text {
-    font-family: 'Exo', sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     font-size: 20px;
     padding-top: 20px;
     padding-bottom: 20px;
