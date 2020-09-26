@@ -21,7 +21,7 @@
 <ul class="accordion col-12">
 <div class="row">
     <div class="col s4">
-        <button class="accordion col s12 btn-large light-blue darken-4 text-shadow">Log In</button>
+        <button class="accordion col s12 btn-large">Log In</button>
         <div class="panel">
             <form class="login" method="POST" action="{{ url_for('login') }}">
                 <div class="card-panel">
@@ -43,7 +43,7 @@
                     </div>
                     <!-- login button -->
                     <div class="row">
-                        <button type="submit" class="col s12 btn-large light-blue darken-4 text-shadow">
+                        <button type="submit" class="col s12 btn-large darken-4 text-shadow">
                             Log In
                         </button>
                     </div>
@@ -52,7 +52,7 @@
         </div>
     </div>
     <div class="col s4">
-        <button class="accordion col s12 btn-large blue lighten-5 text-shadow">Register</button>
+        <button class="accordion col s12 btn-large text-shadow">Register</button>
         <div class="panel">
             <form class="register" method="POST" action="{{ url_for('register') }}">
                 <div class="card-panel">
@@ -74,7 +74,7 @@
                     </div>
                     <!-- register button -->
                     <div class="row">
-                        <button type="submit" class="col s12 btn-large light-blue darken-4 text-shadow">
+                        <button type="submit" class="col s12 btn-large darken-4 text-shadow">
                             Register
                         </button>
                     </div>
@@ -84,7 +84,7 @@
     </div>
 <div class="row">
     <div class="logout col s4">
-        <button class="col s12 btn-large light-blue darken-4 text-shadow" method="POST" action="{{ url_for('logout') }}">Log Out</button>
+        <button class="col s12 btn-large text-shadow" method="POST" action="{{ url_for('logout') }}">Log Out</button>
     </div>
 </div>
 </div>
@@ -92,16 +92,20 @@
 
 <div class="background" src="/static/img/bg.jgp" alt="funky">
 
+
+
+<div class="row">
+
+
+<div class="col s6">
 <div class="text">
     GIVE
 </div>
-
-<div class="row">
 {% for items in help %}
-    <ul class="collapsible col s6">
+        <ul class="collapsible">
         {% if items.category_name %}
         <li>
-            <div class="collapsible-header white-text light-blue darken-4 text-shadow">
+            <div class="collapsible-header darken-4 text-shadow">
                 <i class="fas fa-caret-down"></i>
                 <strong>{{ items.category_name }}</strong>
             </div>
@@ -135,35 +139,35 @@
                 </form>
             </div>
         </li>
+        {% endif %}
     </ul>
+    {% endfor %}
 </div>
  
-{% endif %}
-{% endfor %}
-
+<div class="col s6">
 <div class="text">
     APPLY
 </div>
 
-<div class="row">
 {% for items in people %}
-    <div class="collapsible col s6">
-        {% if items.recipient_name %}
-            <div class="collapsible-header light-blue darken-4 text-shadow">
-                <i class="fas fa-caret-down"></i>
-                <strong>{{ items.recipient_name }}</strong>
-            </div>
-            <div class="collapsible-body">
-                <p>{{ items.task_description }}</p>
-                <form class="col s12" method="POST" action="">
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
-                            <input id="task_name" name="task_name" minlength="5" maxlength="50"
-                                type="text" class="validate" required>
-                            <label for="task_name">How can you help level up?</label>
+        <ul class="collapsible">
+            {% if items.recipient_name %}
+            <li>
+                <div class="collapsible-header darken-4 text-shadow">
+                    <i class="fas fa-caret-dow"></i>
+                    <strong>{{ items.recipient_name }}</strong>
+                </div>
+                <div class="collapsible-body">
+                    <p>{{ items.task_description }}</p>
+                    <form class="col s12" method="POST" action="">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
+                                <input id="task_name" name="task_name" minlength="5" maxlength="50"
+                                    type="text" class="validate" required>
+                                <label for="task_name">How can you help level up?</label>
+                            </div>
                         </div>
-                    </div>
                         <div class="row">
                             <div class="input-field col s12">
                                 <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
@@ -172,20 +176,22 @@
                                     <label for="task_description">E-mail Address</label>
                             </div>
                         </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
-                            <textarea id="task_description" name="task_description" minlength="5"
-                                maxlength="200" class="materialize-textarea validate" required></textarea>
-                            <label for="task_description">Website and upload CV</label>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
+                                <textarea id="task_description" name="task_description" minlength="5"
+                                    maxlength="200" class="materialize-textarea validate" required></textarea>
+                                <label for="task_description">Website and upload CV</label>
+                            </div>
                         </div>
-                    </div>
-                </form>
-            </div>
-    </div>
-</div>
- 
-{% endif %}
+                    </form>
+                </div>
+            </li>
+            {% endif %}
+        </ul>
 {% endfor %}
-        
+</div>
+</div>
+
+
 {% endblock %}

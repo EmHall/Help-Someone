@@ -1,7 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700|Exo:100,200,300,400,500,600,700');
 
-.button {
-    font-style: slategrey;
+.btn-large {
+    color: slategrey;
+    background-color:#e3f2fd ;
+}
+
+.collapsible-header {
+    color: slategrey;
+    background-color: #e3f2fd;
 }
 
 .container {
