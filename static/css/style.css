@@ -5,6 +5,11 @@
     background-color:#e3f2fd ;
 }
 
+.btn-large:hover {
+    color: #e3f2fd;
+    background-color: slategrey;
+}
+
 .collapsible-header {
     color: slategrey;
     background-color: #e3f2fd;
@@ -12,11 +17,13 @@
 
 .container {
     font-family: "Exo", sans-serif;
-    color: pink;
+    color: slategrey;
 }
+
 .picture {
     background-image: url("../img/houses.jpg");
     background-size: contain;
+    height: 200px;
 }
 
 .card-panel {
