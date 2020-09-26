@@ -19,13 +19,13 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
-@app.route("/get_help")
+@app.route("/help")
 def get_help():
     help = list(mongo.db.categories.find())
     people = list(mongo.db.recipients.find())
-    return render_template("help.html", help=help, people=people)
-
-
+    return render_template("help.html")
+    
+    
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -47,9 +47,9 @@ def register():
         session["user"] = request.form.get("username").lower()
         session["logged_in"] = True
         flash("Registration Successful!")
-        return redirect(url_for("profile", username=session["user"]))
+        return redirect(url_for("get_help", username=session["user"]))
 
-    return render_template("register.html")
+    return render_template("help.html")
 
 
 # !/usr/bin/python
@@ -84,15 +84,15 @@ def login():
                 # invalid password match
 
                 flash('Incorrect Username and/or Password')
-                return redirect(url_for('login'))
+                return redirect(url_for('help'))
         else:
 
             # username doesn't exist
 
             flash('Incorrect Username and/or Password')
-            return redirect(url_for('login'))
+            return redirect(url_for('help'))
 
-    return render_template('login.html')
+    return render_template('help.html')
 
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
@@ -102,7 +102,7 @@ def profile(username):
         {"username": session["user"]})["username"]
 
     if session["user"]:
-        return render_template("profile.html", username=username)
+        return render_template("help.html", username=username)
 
     return redirect(url_for("login"))
 
@@ -112,7 +112,7 @@ def logout():
     # remove user from session cookie
     flash("You have been logged out")
     session.pop("user")
-    return redirect(url_for("login"))
+    return redirect(url_for("add_help"))
 
 
 @app.route("/add_help")
