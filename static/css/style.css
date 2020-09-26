@@ -14,7 +14,7 @@
     font-family: "Exo", sans-serif;
     color: pink;
 }
-.jumbotron {
+.picture {
     background-image: url("../img/houses.jpg");
     background-size: contain;
 }
