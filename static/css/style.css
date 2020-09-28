@@ -5,6 +5,13 @@
     background-color:#e3f2fd ;
 }
 
+.title {
+    font-family: "Segoe UI", sans-serif;
+    font-size: 60px;
+    font-weight: lighter;
+    color: slategrey;
+}
+
 .btn-large:hover {
     color: #e3f2fd;
     background-color: slategrey;
@@ -17,6 +24,11 @@
 
 .container {
     font-family: "Segoe UI", sans-serif;
+    color: slategrey;
+}
+
+.options {
+        font-family: "Segoe UI", sans-serif;
     color: slategrey;
 }
 
