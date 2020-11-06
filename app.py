@@ -18,11 +18,23 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
-@app.route("/")
+@app.route("/", methods=["GET", "POST"])
 @app.route("/help")
 def get_help():
     help = list(mongo.db.categories.find())
     people = list(mongo.db.recipients.find())
+    if request.method=="POST":
+        print("I'm in")
+        name = request.form['task_name']
+        email = request.form['email']
+        task_description = request.form['task_description']
+        category_db=mongo.db.categories
+        category_db.insert_one({
+            'task_name': name,
+            'email': email,
+            'task_description': task_description,
+            'category': 'exam'
+        })
     return render_template("help.html", help=help, people=people)
     
 
@@ -111,8 +123,8 @@ def profile(username):
 def logout():
     # remove user from session cookie
     flash("You have been logged out")
-    session.pop("user")
-    return redirect(url_for("add_help"))
+    session.clear()
+    return redirect(url_for("login"))
 
 
 @app.route("/add_help")

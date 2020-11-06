@@ -1,8 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 
-<!--jumbotron-->
-
 <div class="row">
     <div class="picture" src = "../img/houses.jpg" alt = "houses">
     </div>
@@ -11,16 +9,25 @@
 <div class="title">Shrink the wealth gap by building community</div>
 
 <!--rubric-->
-
+{% if not session['logged_in'] %}
 <div class="text">
-    The Government has recently committed to "Levelling Up" the economy, so that London and the rest of the country have access to equally good opportunities and, ultimately, income. Income equality, however, cannot be achieved by this Government alone, so this website aims to help young people without means or networks to access opportunities that they otherwise wouldn't be able to.
+    The Government has recently committed to "Levelling Up" the economy, so that London and the rest of the country have access to equally good opportunities and, ultimately, income. Income equality, however, cannot be achieved by this Government alone. If you are a family with means to support another that has been harder hit by the Covid-19 pandemic, you can sign up to be partnered with another household. You can meet them over Skype and work out how you might work together to build a stronger future together.
 </div>
+{% endif %}
+
+<!--rubric-->
+{% if session['logged_in'] %}
+<div class="text">
+    In order for us to successfully match you with a partner household, please fill in the firm below as comprehensively as possible.</div>
+{% endif %}
 
 <!--login/register/logout-->
 
+{% if not session['logged_in'] %}
+
 <ul class="accordion col-12 col-md-10">
 <div class="row">
-    <div class="col s4 col-md-10">
+    <div class="col s6 col-md-10">
         <button class="accordion col s12 btn-large">Log In</button>
         <div class="panel">
             <form class="login" method="POST" action="{{ url_for('login') }}">
@@ -29,7 +36,7 @@
                     <div class="row">
 					    <div class="input-field col s12 col-md-10">
 						    <input id="username" name="username" type="text" minlength="5"
-                                maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
+                                maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate input-section" required>
 						    <label for="username">Username</label>
 					    </div>
                     </div>
@@ -37,7 +44,7 @@
                     <div class="row">
                         <div class="input-field col s12 col-md-10">
                             <input id="password" name="password" type="password" minlength="5"
-                                maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
+                                maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate input-section" required>
                             <label for="password">Password</label>
                         </div>
                     </div>
@@ -51,7 +58,7 @@
             </form>
         </div>
     </div>
-    <div class="col s4 md">
+    <div class="col s6 md">
         <button class="accordion col s12 btn-large text-shadow">Register</button>
         <div class="panel">
             <form class="register" method="POST" action="{{ url_for('register') }}">
@@ -60,7 +67,7 @@
                     <div class="row">
 					    <div class="input-field col s12">
 						    <input id="username" name="username" type="text" minlength="5"
-                                maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
+                                maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate input-section" required>
 						    <label for="username">Username</label>
 					    </div>
                     </div>
@@ -68,7 +75,7 @@
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="password" name="password" type="password" minlength="5"
-                                maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
+                                maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate input-section" required>
                             <label for="password">Password</label>
                         </div>
                     </div>
@@ -82,108 +89,43 @@
             </form>
         </div>
     </div>
-<div class="row">
-    <div class="logout col s4 md">
-        <button class="col s12 btn-large text-shadow" method="POST" action="{{ url_for('logout') }}">Log Out</button>
-    </div>
-</div>
+{% endif %}
+
+
+
 </div>
 </ul>
 
+{% if session["logged_in"] %}
 <div class="row">
 
-<div class="col s6 col-md-10">
-<div class="text">
-    GIVE
-</div>
-{% for items in help %}
-        <ul class="collapsible">
-        {% if items.category_name %}
-        <li>
-            <div class="collapsible-header">
-                <i class="fas fa-caret-down"></i>
-                <div class = "options">{{ items.category_name }}</div>
-            </div>
-            <div class="collapsible-body">
-                <p>{{ items.task_description }}</p>
-                <form class="col s12" method="POST" action="">
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <i class="fas fa-pencil-alt prefix text-darken-4"></i>
-                            <input id="task_name" name="task_name" minlength="5" maxlength="50" type="text" class="validate" required>
-                            <label for="task_name">How can you help level up?</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <i class="fas fa-align-left prefix text-darken-4"></i>
-                                <textarea id="task_description" name="task_description" minlength="5"
-                                    maxlength="200" class="materialize-textarea validate" required></textarea>
-                                <label for="task_description">E-mail Address</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <i class="fas fa-align-left prefix text-darken-4"></i>
-                            <textarea id="task_description" name="task_description" minlength="5"
-                                maxlength="200" class="materialize-textarea validate" required></textarea>
-                            <label for="task_description">Website and upload CV</label>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </li>
-        {% endif %}
-        {% endfor %}
-    </ul>
-</div>
- 
-<div class="col s6">
-<div class="text">
-    APPLY
-</div>
+<form>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Email address</label>
+    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Phone number (optional)</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+    <div class="form-group">
+    <label for="exampleFormControlTextarea1">Why you would like to participate in this program.</label>
+    <textarea class="form-control1" id="exampleFormControlTextarea1" rows="3"></textarea>
+</form>
 
-{% for items in people %}
-        <ul class="collapsible">
-            {% if items.recipient_name %}
-            <li>
-                <div class="collapsible-header darken-4 text-shadow">
-                    <i class="fas fa-caret-dow"></i>
-                <div class = "options">{{ items.recipient_name }}</div>
-                </div>
-                <div class="collapsible-body">
-                    <p>{{ items.task_description }}</p>
-                    <form class="col s12" method="POST" action="">
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <i class="fas fa-pencil-alt prefix text-darken-4"></i>
-                                <input id="task_name" name="task_name" minlength="5" maxlength="50"
-                                    type="text" class="validate" required>
-                                <label for="task_name">How can you help level up?</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <i class="fas fa-align-left prefix text-darken-4"></i>
-                                    <textarea id="task_description" name="task_description" minlength="5"
-                                        maxlength="200" class="materialize-textarea validate" required></textarea>
-                                    <label for="task_description">E-mail Address</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <i class="fas fa-align-left prefix text-darken-4"></i>
-                                <textarea id="task_description" name="task_description" minlength="5"
-                                    maxlength="200" class="materialize-textarea validate" required></textarea>
-                                <label for="task_description">Website and upload CV</label>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </li>
-            {% endif %}
-            {% endfor %}
-        </ul>
+
+{% if session['logged_in'] %}
+
+<div class="row">
+    <div class="logout col s4 md">
+    <form action = "{{ url_for('logout') }}">
+        <button class="col s12 btn-large text-shadow">Log Out</button>
+    </form>
     </div>
 </div>
+
+{% endif %}
+
+</div>
+{% endif %}
 {% endblock %}
